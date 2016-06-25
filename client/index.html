@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+    <head>
+        <title>WASHCAP</title>
+        <meta charset="UTF-8">
+        <script type="text/javascript" src='/angular/angular.js'></script>
+        <script type="text/javascript" src='/static/js/app.js'></script>
+        <link rel="stylesheet" type="text/css" href="/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+    </head>
+    <body ng-controller="MainController as MC">
+        <div class="container">
+            <h1>WASHCAP</h1>
+            <ul>
+                <li>Single SSI recipient in WA</li>
+                <li>Calculated using info from SSA</li>
+                <li>Report all changes to SSA</li>
+            </ul>
+            <form class="form-group row">
+                <div class="form-group">
+                    <label for="grossIncome">Gross Income</label>
+                    <input ng-model="grossInc" type="number" class="form-control" id="grossIncome" ng-change="MC.calcGross(grossInc)" placeholder="$$$">
+                </div>
+                <div class="form-group">
+                    <label for="rentCost">Rent (monthly)</label>
+                    <input ng-model="rent" type="number" class="form-control" id="rentCost" ng-change="MC.calcShelter(rent)" placeholder="$$$">
+                </div>
+                <div class="form-group">
+                    <label for="countableIncome">Countable Income</label>
+                    <input disabled type="text" value="{{MC.countable}}" class="form-control" id="countableIncome" placeholder="$$$">
+                </div>
+                <div class="form-group">
+                    <label for="shelterCost">Shelter Cost</label>
+                    <input disabled type="text" value="{{MC.shelter}}" class="form-control" id="shelterCost" placeholder="$$$">
+                </div>
+                <div class="form-group">
+                    <label for="shelterDeduction">Shelter Deduction</label>
+                    <input disabled type="text" value="{{MC.shelterDeduction}}" class="form-control" id="shelterDeduction" placeholder="$$$">
+                </div>
+                <div class="form-group">
+                    <label for="netIncome">Net Income</label>
+                    <input disabled type="text" value="{{MC.netIncome}}" class="form-control" id="netIncome" placeholder="$$$">
+                </div>
+                <div class="form-group">
+                    <label for="food">WASHCAP Food Benefit</label>
+                    <input disabled type="text" value="{{MC.food}}" class="form-control" id="food" placeholder="$$$">
+                </div>
+            </form>
+        </div>
+    </body>
+</html>
